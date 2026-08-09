@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-vector/20250528/ourlarge/pngtree-cyber-security-badge-icon-png-image_16393283.png">
+<title>Cybersecurity Guide</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #030811;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.10;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 7%;
+    background: rgba(3, 8, 17, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #008cff;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: #8fdcff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+}
+
+.hero-content {
+    max-width: 950px;
+}
+
+.logo { 
+    width: 150px; 
+    height: 150px; 
+    margin: auto; 
+    border-radius: 50%; 
+    border: 3px solid #00bfff; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 70px; 
+    box-shadow: 0 0 20px #008cff, 0 0 60px #004cff; 
+    animation: pulse 2s infinite; 
+} 
+
+.logo::before { 
+    content: "S";
+    color: #ffffff; 
+    font-weight: bold; 
+    font-family: Arial, sans-serif; 
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 20px #0077ff,
+            0 0 70px #004cff;
+    }
+
+    50% {
+        box-shadow:
+            0 0 40px #00eaff,
+            0 0 110px #008cff;
+    }
+
+}
+
+.hero h1 {
+    margin-top: 35px;
+    font-size: clamp(45px, 8vw, 90px);
+    color: #00d9ff;
+    text-shadow: 0 0 25px #0077ff;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #a7c8dd;
+    line-height: 1.7;
+}
+
+#typing {
+    color: #00ff9d;
+    font-family: monospace;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 10px;
+    border: 1px solid #00c8ff;
+    border-radius: 7px;
+    color: white;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #00aaff;
+    color: #000;
+    box-shadow: 0 0 30px #008cff;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    color: #00d9ff;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #0077ff;
+}
+
+.section-description {
+    max-width: 850px;
+    margin: 0 auto 50px;
+    text-align: center;
+    color: #9db8cc;
+    line-height: 1.8;
+}
+
+.dashboard {
+    max-width: 900px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid #0877b5;
+    border-radius: 15px;
+    background: rgba(7, 19, 32, 0.92);
+    box-shadow: 0 0 35px rgba(0, 140, 255, 0.15);
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.progress {
+    width: 100%;
+    height: 20px;
+    background: #101b28;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#securityBar,
+#passwordBar {
+    height: 100%;
+    width: 72%;
+    background: linear-gradient(90deg, #00ff9d, #00c8ff);
+    box-shadow: 0 0 15px #00ff9d;
+    transition: 1s;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.info-card {
+    background: rgba(8, 19, 32, 0.94);
+    border: 1px solid #145a80;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    border-color: #00d9ff;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.25);
+}
+
+.info-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.info-content {
+    padding: 25px;
+}
+
+.info-content h3 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+.info-content p {
+    color: #a9bfd2;
+    line-height: 1.7;
+}
+
+.info-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
+    color: #a9bfd2;
+    line-height: 1.8;
+}
+
+.learn-more {
+    margin-top: 20px;
+    display: inline-block;
+    color: #00ff9d;
+    cursor: pointer;
+}
+
+.extra-info {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #164762;
+    color: #8fdcff;
+    line-height: 1.7;
+}
+
+.info-card.active .extra-info {
+    display: block;
+}
+
+.video-container {
+    max-width: 900px;
+    margin: auto;
+    background: #050c15;
+    border: 1px solid #008cff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 35px rgba(0, 140, 255, 0.15);
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.video-description {
+    padding: 20px 5px 5px;
+    color: #a7bfd2;
+    line-height: 1.7;
+}
+
+.attack-flow {
+    max-width: 950px;
+    margin: auto;
+}
+
+.flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.flow-step {
+    padding: 25px;
+    text-align: center;
+    background: rgba(8, 20, 34, 0.95);
+    border: 1px solid #145b7d;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.flow-step:hover {
+    border-color: #00ff9d;
+    box-shadow: 0 0 25px rgba(0, 255, 157, 0.2);
+}
+
+.flow-number {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 1px solid #00d9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00d9ff;
+    font-weight: bold;
+}
+
+.flow-step h3 {
+    color: #00d9ff;
+    margin-bottom: 10px;
+}
+
+.flow-step p {
+    color: #9fb8ca;
+    line-height: 1.6;
+}
+
+.tool {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: rgba(7, 19, 32, 0.95);
+    border: 1px solid #008cff;
+    border-radius: 15px;
+}
+
+.tool h2 {
+    color: #00d9ff;
+    margin-bottom: 12px;
+}
+
+.tool p {
+    color: #9db8cc;
+    line-height: 1.7;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0 12px;
+    background: #07111c;
+    color: white;
+    border: 1px solid #155a7d;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="password"]:focus {
+    border-color: #00d9ff;
+    box-shadow: 0 0 12px #0077ff;
+}
+
+#strengthText {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.terminal {
+    min-height: 250px;
+    padding: 25px;
+    background: #010509;
+    border: 1px solid #00ff9d;
+    border-radius: 10px;
+    color: #00ff9d;
+    font-family: monospace;
+    line-height: 1.7;
+    box-shadow: inset 0 0 30px rgba(0, 255, 157, 0.04);
+}
+
+#scanOutput {
+    white-space: pre-line;
+}
+
+.checklist {
+    max-width: 850px;
+    margin: auto;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    margin-bottom: 12px;
+    background: rgba(8, 20, 34, 0.95);
+    border: 1px solid #145b7d;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.check-item:hover {
+    border-color: #00d9ff;
+}
+
+.check-item input {
+    width: 20px;
+    height: 20px;
+}
+
+.check-item span {
+    color: #b2c9da;
+}
+
+.quiz {
+    max-width: 850px;
+    margin: auto;
+}
+
+.question {
+    padding: 25px;
+    margin-bottom: 20px;
+    background: rgba(8, 20, 34, 0.95);
+    border: 1px solid #145b7d;
+    border-radius: 10px;
+}
+
+.question h3 {
+    margin-bottom: 15px;
+    color: #00d9ff;
+}
+
+.question label {
+    display: block;
+    padding: 10px;
+    color: #b5cad9;
+    cursor: pointer;
+}
+
+.question label:hover {
+    color: #00d9ff;
+}
+
+#quizResult {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 24px;
+    color: #00ff9d;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.resource {
+    padding: 25px;
+    background: rgba(8, 20, 34, 0.95);
+    border: 1px solid #145b7d;
+    border-radius: 10px;
+}
+
+.resource h3 {
+    color: #00d9ff;
+    margin-bottom: 12px;
+}
+
+.resource p {
+    color: #9db8cc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.resource a {
+    color: #00ff9d;
+    text-decoration: none;
+}
+
+.resource a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #145b7d;
+    color: #7892a8;
+}
+
+footer h3 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 15px 3%;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .logo {
+        width: 110px;
+        height: 110px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+
+<ul>
+
+<li><a href="#home">HOME</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#threats">THREATS</a></li>
+<li><a href="#attacks">ATTACKS</a></li>
+<li><a href="#video">VIDEO</a></li>
+<li><a href="#password">PASSWORD</a></li>
+<li><a href="#scanner">SCANNER</a></li>
+<li><a href="#quiz">QUIZ</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="logo"></div>
+
+<h1>CYBERGUARD</h1>
+
+<p>
+Your interactive guide to protecting your digital life.
+</p>
+
+<p>
+<span id="typing"></span>
+</p>
+
+<a href="#about" class="button">
+EXPLORE THE GUIDE
+</a>
+
+<a href="#quiz" class="button">
+TEST YOUR KNOWLEDGE
+</a>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">
+WHAT IS CYBERSECURITY?
+</h2>
+
+<p class="section-description">
+
+Cybersecurity is the practice of protecting computers, networks,
+applications, devices, and information from unauthorized access,
+damage, theft, and disruption.
+
+As more of our lives move online, cybersecurity has become important
+for students, businesses, governments, and ordinary internet users.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<img src="https://videocdn.cdnpk.net/videos/a1b36dc3-d63e-5267-bb59-c0a1e91ad877/horizontal/thumbnails/large.jpg?semt=ais_hybrid&item_id=7380360&w=740&q=80"
+alt="Laptop displaying a security interface">
+
+<div class="info-content">
+
+<h3>Confidentiality</h3>
+
+<p>
+Only authorized people should have access to sensitive information.
+Passwords, encryption, and access controls help protect confidentiality.
+</p>
+
+</div>
+
+</div>
+
+<div class="info-card">
+
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80"
+alt="Computer servers">
+
+<div class="info-content">
+
+<h3>Integrity</h3>
+
+<p>
+Information should remain accurate and should not be changed by
+unauthorized users.
+</p>
+
+</div>
+
+</div>
+
+<div class="info-card">
+
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+alt="Digital network">
+
+<div class="info-content">
+
+<h3>Availability</h3>
+
+<p>
+Systems and information should remain accessible when legitimate
+users need them.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+SECURITY STATUS
+</h2>
+
+<div class="dashboard">
+
+<div class="status">
+
+<span>System Security</span>
+
+<span id="securityPercent">72%</span>
+
+</div>
+
+<div class="progress">
+
+<div id="securityBar"></div>
+
+</div>
+
+<button class="button" onclick="runSecurityCheck()">
+RUN SECURITY CHECK
+</button>
+
+</div>
+
+</section>
+
+<section id="threats">
+
+<h2 class="section-title">
+COMMON CYBER THREATS
+</h2>
+
+<p class="section-description">
+Understanding common threats makes it easier to recognize suspicious
+activity before it becomes a serious problem.
+</p>
+
+<div class="info-grid">
+
+<div class="info-card" onclick="toggleCard(this)">
+
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80"
+alt="Person using a smartphone">
+
+<div class="info-content">
+
+<h3>Phishing</h3>
+
+<p>
+Attackers create fake emails, messages, websites, or login pages
+designed to trick users into revealing information.
+</p>
+
+<div class="learn-more">
+CLICK TO LEARN MORE
+</div>
+
+<div class="extra-info">
+
+Common warning signs include urgent requests, suspicious links,
+unexpected attachments, fake login pages, and unfamiliar senders.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info-card" onclick="toggleCard(this)">
+
+<img src="https://www.tarlogic.com/wp-content/uploads/2024/02/Tipos-de-malware.webp"
+alt="Malware">
+
+<div class="info-content">
+
+<h3>Malware</h3>
+
+<p>
+Malware is software created to damage systems, steal information,
+spy on users, or perform other unauthorized actions.
+</p>
+
+<div class="learn-more">
+CLICK TO LEARN MORE
+</div>
+
+<div class="extra-info">
+
+Examples include viruses, worms, spyware, trojans, and other
+malicious programs. Keeping software updated can reduce security risks.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info-card" onclick="toggleCard(this)">
+
+<img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=900&q=80"
+alt="Digital lock">
+
+<div class="info-content">
+
+<h3>Ransomware</h3>
+
+<p>
+Ransomware can prevent users from accessing files or systems and
+may demand payment from victims.
+</p>
+
+<div class="learn-more">
+CLICK TO LEARN MORE
+</div>
+
+<div class="extra-info">
+
+Regular offline or otherwise protected backups can help organizations
+recover without relying entirely on the attacker.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info-card" onclick="toggleCard(this)">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+alt="Person working on a laptop">
+
+<div class="info-content">
+
+<h3>Social Engineering</h3>
+
+<p>
+Social engineering manipulates people into revealing information or
+performing actions that compromise security.
+</p>
+
+<div class="learn-more">
+CLICK TO LEARN MORE
+</div>
+
+<div class="extra-info">
+
+Attackers may pretend to be employees, friends, delivery services,
+technical support, or other trusted contacts.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="attacks">
+
+<h2 class="section-title">
+HOW A PHISHING ATTACK WORKS
+</h2>
+
+<p class="section-description">
+Many cyber attacks follow a predictable process. Learning the process
+can help you recognize an attack before reaching the final stage.
+</p>
+
+<div class="attack-flow">
+
+<div class="flow">
+
+<div class="flow-step">
+
+<div class="flow-number">1</div>
+
+<h3>Contact</h3>
+
+<p>
+The attacker sends an email, message, or other communication.
+</p>
+
+</div>
+
+<div class="flow-step">
+
+<div class="flow-number">2</div>
+
+<h3>Impersonation</h3>
+
+<p>
+The message pretends to come from a trusted person or organization.
+</p>
+
+</div>
+
+<div class="flow-step">
+
+<div class="flow-number">3</div>
+
+<h3>Urgency</h3>
+
+<p>
+The victim is pressured to act quickly without checking the message.
+</p>
+
+</div>
+
+<div class="flow-step">
+
+<div class="flow-number">4</div>
+
+<h3>Interaction</h3>
+
+<p>
+The victim clicks a link, opens an attachment, or provides information.
+</p>
+
+</div>
+
+<div class="flow-step">
+
+<div class="flow-number">5</div>
+
+<h3>Compromise</h3>
+
+<p>
+The attacker may gain access to an account or sensitive information.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="video">
+
+<h2 class="section-title">
+CYBERSECURITY VIDEO
+</h2>
+
+<p class="section-description">
+Watch the video below for an introduction to cybersecurity concepts
+and online safety.
+</p>
+
+<div class="video-container">
+
+<video controls>
+
+<source src="CYBER SECURITY explained in 8 Minutes.mp4"
+type="video/mp4">
+
+Your browser does not support HTML video.
+
+</video>
+
+<div class="video-description">
+
+Pogi at matalino talaga ang naggawa ng website nato
+
+</div>
+
+</div>
+
+</section>
+
+<section id="password">
+
+<h2 class="section-title">
+PASSWORD SECURITY
+</h2>
+
+<p class="section-description">
+
+Passwords are one of the first lines of defense for online accounts.
+Use long, unique passwords and consider using a reputable password manager.
+
+</p>
+
+<div class="tool">
+
+<h2>Test Password Strength</h2>
+
+<p>
+Enter a sample password to see how its characteristics affect the
+strength indicator. Do not enter a real password.
+</p>
+
+<input
+type="password"
+id="passwordInput"
+placeholder="Enter a sample password..."
+oninput="checkPassword()"
+>
+
+<div class="progress">
+
+<div id="passwordBar"></div>
+
+</div>
+
+<p id="strengthText">
+Waiting for password...
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+SECURITY CHECKLIST
+</h2>
+
+<div class="checklist">
+
+<label class="check-item">
+<input type="checkbox">
+<span>Use unique passwords for important accounts.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Enable two-factor authentication when available.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Keep operating systems and applications updated.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Check links before opening them.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Avoid entering sensitive information on suspicious websites.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Back up important files regularly.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Use secure networks when handling sensitive information.</span>
+</label>
+
+<label class="check-item">
+<input type="checkbox">
+<span>Review account activity for unusual logins.</span>
+</label>
+
+</div>
+
+</section>
+
+<section id="scanner">
+
+<h2 class="section-title">
+SECURITY SCANNER
+</h2>
+
+<div class="tool">
+
+<div class="terminal">
+
+<div id="scanOutput">
+SYSTEM READY...
+
+Click "START SCAN" to begin.
+</div>
+
+</div>
+
+<button class="button" onclick="startScan()">
+START SCAN
+</button>
+
+</div>
+
+</section>
+
+<section id="quiz">
+
+<h2 class="section-title">
+CYBERSECURITY QUIZ
+</h2>
+
+<div class="quiz">
+
+<div class="question">
+
+<h3>1. What should you do with a suspicious link?</h3>
+
+<label>
+<input type="radio" name="q1" value="wrong">
+Click it immediately
+</label>
+
+<label>
+<input type="radio" name="q1" value="correct">
+Check whether it is trustworthy
+</label>
+
+<label>
+<input type="radio" name="q1" value="wrong">
+Send it to other people
+</label>
+
+</div>
+
+<div class="question">
+
+<h3>2. Which password is stronger?</h3>
+
+<label>
+<input type="radio" name="q2" value="wrong">
+password123
+</label>
+
+<label>
+<input type="radio" name="q2" value="wrong">
+john2009
+</label>
+
+<label>
+<input type="radio" name="q2" value="correct">
+T9@vP!8q#Lm2
+</label>
+
+</div>
+
+<div class="question">
+
+<h3>3. What does two-factor authentication provide?</h3>
+
+<label>
+<input type="radio" name="q3" value="wrong">
+Faster internet
+</label>
+
+<label>
+<input type="radio" name="q3" value="correct">
+An additional layer of account security
+</label>
+
+<label>
+<input type="radio" name="q3" value="wrong">
+More storage space
+</label>
+
+</div>
+
+<div class="question">
+
+<h3>4. Which is a common sign of phishing?</h3>
+
+<label>
+<input type="radio" name="q4" value="correct">
+An unexpected urgent request for sensitive information
+</label>
+
+<label>
+<input type="radio" name="q4" value="wrong">
+A normal offline document
+</label>
+
+<label>
+<input type="radio" name="q4" value="wrong">
+A trusted file you created yourself
+</label>
+
+</div>
+
+<div class="question">
+
+<h3>5. Why should important files be backed up?</h3>
+
+<label>
+<input type="radio" name="q5" value="wrong">
+To make the computer heavier
+</label>
+
+<label>
+<input type="radio" name="q5" value="correct">
+To help recover information after loss or damage
+</label>
+
+<label>
+<input type="radio" name="q5" value="wrong">
+To increase screen brightness
+</label>
+
+</div>
+
+<button class="button" onclick="checkQuiz()">
+SUBMIT QUIZ
+</button>
+
+<div id="quizResult"></div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+LEARN MORE
+</h2>
+
+<div class="resource-grid">
+
+<div class="resource">
+
+<h3>CISA</h3>
+
+<p>
+Cybersecurity information, guidance, and resources from the U.S.
+Cybersecurity and Infrastructure Security Agency.
+</p>
+
+<a href="https://www.cisa.gov" target="_blank">
+VISIT RESOURCE
+</a>
+
+</div>
+
+<div class="resource">
+
+<h3>OWASP</h3>
+
+<p>
+Resources and educational material about web application security.
+</p>
+
+<a href="https://owasp.org" target="_blank">
+VISIT RESOURCE
+</a>
+
+</div>
+
+<div class="resource">
+
+<h3>Stay Safe Online</h3>
+
+<p>
+Educational resources covering online safety and cybersecurity awareness.
+</p>
+
+<a href="https://staysafeonline.org" target="_blank">
+VISIT RESOURCE
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>CYBERGUARD</h3>
+
+<p>
+Learn. Protect. Stay Secure.
+</p>
+
+<br>
+
+<p>
+© 2026 CyberGuard | Educational Cybersecurity Website
+</p>
+
+</footer>
+
+<script>
+
+const messages = [
+    "Protect your data.",
+    "Think before you click.",
+    "Secure your accounts.",
+    "Stay one step ahead.",
+    "Build better digital habits."
+];
+
+let messageIndex = 0;
+let characterIndex = 0;
+
+function typeEffect() {
+
+    if (characterIndex < messages[messageIndex].length) {
+
+        document.getElementById("typing").textContent +=
+        messages[messageIndex].charAt(characterIndex);
+
+        characterIndex++;
+
+        setTimeout(typeEffect, 60);
+
+    } else {
+
+        setTimeout(() => {
+
+            document.getElementById("typing").textContent = "";
+
+            characterIndex = 0;
+
+            messageIndex++;
+
+            if (messageIndex >= messages.length) {
+                messageIndex = 0;
+            }
+
+            typeEffect();
+
+        }, 1400);
+
+    }
+
+}
+
+typeEffect();
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for (let i = 0; i < columns; i++) {
+    drops[i] = 1;
+}
+
+function drawMatrix() {
+
+    ctx.fillStyle = "rgba(3, 8, 17, 0.08)";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.fillStyle = "#00ff9d";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+
+        const text =
+        letters[Math.floor(Math.random() * letters.length)];
+
+        ctx.fillText(
+            text,
+            i * fontSize,
+            drops[i] * fontSize
+        );
+
+        if (
+            drops[i] * fontSize > canvas.height &&
+            Math.random() > 0.975
+        ) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+
+    }
+
+}
+
+setInterval(drawMatrix, 40);
+
+function toggleCard(card) {
+    card.classList.toggle("active");
+}
+
+function checkPassword() {
+
+    const password =
+    document.getElementById("passwordInput").value;
+
+    let score = 0;
+
+    if (password.length >= 8) score++;
+    if (password.length >= 12) score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/[0-9]/.test(password)) score++;
+    if (/[^A-Za-z0-9]/.test(password)) score++;
+
+    const bar =
+    document.getElementById("passwordBar");
+
+    const text =
+    document.getElementById("strengthText");
+
+    const percentage =
+    score * 20;
+
+    bar.style.width =
+    percentage + "%";
+
+    if (score === 0) {
+
+        text.textContent =
+        "Waiting for password...";
+
+    } else if (score <= 2) {
+
+        text.textContent =
+        "WEAK PASSWORD";
+
+    } else if (score <= 4) {
+
+        text.textContent =
+        "MODERATE PASSWORD";
+
+    } else {
+
+        text.textContent =
+        "STRONG PASSWORD";
+
+    }
+
+}
+
+function runSecurityCheck() {
+
+    const bar =
+    document.getElementById("securityBar");
+
+    const percent =
+    document.getElementById("securityPercent");
+
+    let value = 0;
+
+    bar.style.width = "0%";
+    percent.textContent = "0%";
+
+    const interval = setInterval(() => {
+
+        value++;
+
+        bar.style.width =
+        value + "%";
+
+        percent.textContent =
+        value + "%";
+
+        if (value >= 100) {
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+
+                const result =
+                Math.floor(Math.random() * 21) + 75;
+
+                bar.style.width =
+                result + "%";
+
+                percent.textContent =
+                result + "%";
+
+                alert(
+                    "SECURITY CHECK COMPLETE\n\n" +
+                    "Estimated security level: " +
+                    result + "%"
+                );
+
+            }, 500);
+
+        }
+
+    }, 20);
+
+}
+
+function startScan() {
+
+    const output =
+    document.getElementById("scanOutput");
+
+    output.textContent = "";
+
+    const messages = [
+
+        "Initializing CyberGuard scanner...",
+        "Loading security modules...",
+        "Scanning system ports...",
+        "Checking suspicious connections...",
+        "Analyzing account security...",
+        "Checking password protection...",
+        "Scanning for known threats...",
+        "Analyzing network activity...",
+        "Running final security checks...",
+        "",
+        "SCAN COMPLETE.",
+        "",
+        "No critical threats detected.",
+        "Security monitoring active.",
+        "System status: PROTECTED",
+        "Malakas at pogi si Glidean A. Ambos"
+
+    ];
+
+    let index = 0;
+
+    function printLine() {
+
+        if (index < messages.length) {
+
+            output.textContent +=
+            messages[index] + "\n";
+
+            index++;
+
+            setTimeout(printLine, 400);
+
+        }
+
+    }
+
+    printLine();
+
+}
+
+function checkQuiz() {
+
+    let score = 0;
+
+    const answers = [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+    ];
+
+    answers.forEach(question => {
+
+        const selected =
+        document.querySelector(
+            `input[name="${question}"]:checked`
+        );
+
+        if (
+            selected &&
+            selected.value === "correct"
+        ) {
+            score++;
+        }
+
+    });
+
+    const result =
+    document.getElementById("quizResult");
+
+    if (score === 5) {
+
+        result.textContent =
+        "PERFECT SCORE. Excellent cybersecurity knowledge.";
+
+    } else if (score >= 4) {
+
+        result.textContent =
+        score + "/5 — Very strong.";
+
+    } else if (score >= 3) {
+
+        result.textContent =
+        score + "/5 — Good start. Keep learning.";
+
+    } else {
+
+        result.textContent =
+        score + "/5 — Review the guide and try again.";
+
+    }
+
+}
+
+window.addEventListener("resize", () => {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+});
+
+</script>
+
+</body>
+</html>
